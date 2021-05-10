@@ -8,88 +8,90 @@ let close1 = document.getElementById('close1');
 let blur2 = document.getElementById('blur2');
 
 add.addEventListener('click', () => {
-    pop.classList.add('active')
-    blur.classList.add('active')
-})
+  pop.classList.add('active');
+  blur.classList.add('active');
+});
 
 close.addEventListener('click', () => {
-    pop.classList.remove('active')
-    blur.classList.remove('active')
-
-})
+  pop.classList.remove('active');
+  blur.classList.remove('active');
+});
 close1.addEventListener('click', () => {
-    pop1.classList.remove('active')
-    blur2.classList.remove('active')
+  pop1.classList.remove('active');
+  blur2.classList.remove('active');
+});
 
-})
-
-let input = document.getElementById('list-head')
-let input1 = document.getElementById('subListHeading')
-let cardy = document.getElementById('card')
+let input = document.getElementById('list-head');
+let input1 = document.getElementById('subListHeading');
+let cardy = document.getElementById('card');
 aDD.addEventListener('click', () => {
-    if (!input.value == "") {
-        pop.classList.remove('active')
-        blur.classList.remove('active')
-        cardy.insertAdjacentHTML('beforeend', `<div class='card'><p class='card-heading' onclick='toggleAddItem(this)
-  '>${input.value}</p>`);
-        input.value = "";
-    }
-})
+  if (!input.value == '') {
+    pop.classList.remove('active');
+    blur.classList.remove('active');
+    cardy.insertAdjacentHTML(
+      'beforeend',
+      `<div class='card'><p class='card-heading' onclick='toggleAddItem(this)
+  '>${input.value}</p>`
+    );
+    input.value = '';
+  }
+});
 aDD1.addEventListener('click', (e) => {
-    if (!input1.value == "") {
-        pop1.classList.remove('active')
-        blur2.classList.remove('active')
-        console.log(arr)
-        if (arr.nextElementSibling != null) {
-            arr.nextElementSibling.insertAdjacentHTML('beforeend', `<li class="card-item" onclick="markDone(this)">${input1.value}</li>`)
-            ul.innerHTML = arr.nextElementSibling.innerHTML;
-        } else {
-            arr.parentElement.insertAdjacentHTML('beforeend', `<ul  class="hard"><li class="card-item" onclick="markDone(this)">${input1.value}</li></ul>`)
-            ul.innerHTML = arr.nextElementSibling.innerHTML;
-        }
-
-        input1.value = "";
+  if (!input1.value == '') {
+    pop1.classList.remove('active');
+    blur2.classList.remove('active');
+    console.log(arr);
+    if (arr.nextElementSibling != null) {
+      arr.nextElementSibling.insertAdjacentHTML(
+        'beforeend',
+        `<div class="sub_item_div"><input name="sub_item" type="checkbox" class="card-item" /><label for="sub_item">${input1.value}</label><div>`
+      );
+      ul.innerHTML = arr.nextElementSibling.innerHTML;
+    } else {
+      arr.parentElement.insertAdjacentHTML(
+        'beforeend',
+        `<ul class="hard"><div class="sub_item_div"><input name="sub_item" type="checkbox" class="card-item" /> <label for="sub_item">${input1.value}</label><div></ul>`
+      );
+      ul.innerHTML = arr.nextElementSibling.innerHTML;
     }
-})
+
+    input1.value = '';
+  }
+});
 var arr;
 
 function toggleAddItem(tis) {
-    blur.classList.add('magic')
-    blur2.classList.remove('magic')
-    heading.textContent = tis.textContent;
-    heading1.textContent = tis.textContent;
-    arr = tis;
-    if (tis.nextElementSibling != null) {
-        ul.innerHTML = tis.nextElementSibling.innerHTML;
-    } else {
-        ul.innerHTML = ""
-    }
-
+  blur.classList.add('magic');
+  blur2.classList.remove('magic');
+  heading.textContent = tis.textContent;
+  heading1.textContent = tis.textContent;
+  arr = tis;
+  if (tis.nextElementSibling != null) {
+    ul.innerHTML = tis.nextElementSibling.innerHTML;
+  } else {
+    ul.innerHTML = '';
+  }
 }
-let heading = document.getElementById('list-head1')
-let heading1 = document.getElementById('list-head')
-let ul = document.getElementById('List1')
+let heading = document.getElementById('list-head1');
+let heading1 = document.getElementById('list-head');
+let ul = document.getElementById('List1');
 
 function back() {
-    if (arr.nextElementSibling != null) {
-        arr.nextElementSibling.innerHTML = ul.innerHTML;
-    }
-    blur.classList.remove('magic')
-    blur2.classList.add('magic')
+  if (arr.nextElementSibling != null) {
+    arr.nextElementSibling.innerHTML = ul.innerHTML;
+  }
+  blur.classList.remove('magic');
+  blur2.classList.add('magic');
 }
-let pop1 = document.getElementById('popAddItem')
+let pop1 = document.getElementById('popAddItem');
 
 function adder() {
-    pop1.classList.add('active')
-    blur2.classList.add('active')
-}
-
-function markDone(tis) {
-    tis.classList.add('done')
+  pop1.classList.add('active');
+  blur2.classList.add('active');
 }
 
 function deleted() {
-    arr.parentElement.remove()
-    blur.classList.remove('magic')
-    blur2.classList.add('magic')
+  arr.parentElement.remove();
+  blur.classList.remove('magic');
+  blur2.classList.add('magic');
 }
