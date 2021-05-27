@@ -9,3 +9,6 @@ Todo list webapp using html, css and javascript
 # preview :-
 ![Image 3](https://user-images.githubusercontent.com/80676763/117727250-68eee780-b205-11eb-8699-0f6f8e795050.jpg)
 
+# License and copyright
+# © MrHappyhere
+Licensed under The [MIT License](LICENSE).
